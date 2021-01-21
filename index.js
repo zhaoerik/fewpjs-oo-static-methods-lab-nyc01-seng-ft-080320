@@ -6,7 +6,7 @@ class Formatter {
   }
 
   static sanitize(string) {
-    return string.replace(/[^A-Za-z0-9-']+/g, '');
+    return string.replace( /[^A-Za-z0-9 '-]/g, '' )
   }
 
   static titleize(string) {
@@ -14,10 +14,10 @@ class Formatter {
     let results = []
     let arrayString = string.split(' ')
     for (let i = 0; i < arrayString.length; i++) {
-      if (i === 0 || !exceptions.includes(arrayString[i])) {
-        results.push(this.capitalize(arrayString[i]))
-      } else {
+      if (exceptions.includes(arrayString[i])) {
         results.push(arrayString[i])
+      } else {
+        results.push(this.capitalize(arrayString[i]))
       }
     }
     return results.join(" ")
