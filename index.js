@@ -21,4 +21,5 @@ class Formatter {
       }
     }
     return results.join(" ")
+    }
   }
