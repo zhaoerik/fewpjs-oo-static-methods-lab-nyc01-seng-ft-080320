@@ -14,12 +14,11 @@ class Formatter {
     let results = []
     let arrayString = string.split(' ')
     for (let i = 0; i < arrayString.length; i++) {
-      if (exceptions.includes(arrayString[i])) {
-        results.push(arrayString[i])
-      } else {
+      if (i === 0 || !exceptions.includes(arrayString[i])) {
         results.push(this.capitalize(arrayString[i]))
+      } else {
+        results.push(arrayString[i])
       }
     }
     return results.join(" ")
   }
-}
